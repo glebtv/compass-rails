@@ -3,8 +3,8 @@ module CompassRails
     module DebugHelper
 
       def debug(message)
-       puts "#{message}\n" if ENV['DEBUG']
-       $stdout.flush
+       #puts "#{message}\n" if ENV['DEBUG']
+       #$stdout.flush
       end
 
     end

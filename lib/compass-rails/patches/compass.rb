@@ -4,7 +4,7 @@ Compass::Core::SassExtensions::Functions::ImageSize.class_eval do
   def image_path_for_size(image_file)
     begin
       file = ::Rails.application.assets.find_asset(image_file)
-      return file
+      return file.filename
     rescue ::Sprockets::FileOutsidePaths
       return super(image_file)
     end
