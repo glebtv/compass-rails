@@ -3,10 +3,6 @@ require "compass-rails/version"
 require "compass-rails/configuration"
 
 module CompassRails
-
-    RAILS_32 = %r{^3.2}
-    RAILS_31 = %r{^3.1}
-
     extend self
 
     def setup_fake_rails_env_paths(sprockets_env)
@@ -53,16 +49,6 @@ module CompassRails
       rails_spec = (Gem.loaded_specs["railties"] || Gem.loaded_specs["rails"])
       raise "You have to require Rails before compass" unless rails_spec
       rails_spec.version.to_s
-    end
-
-    def rails31?
-      return false unless defined?(::Rails)
-      version_match RAILS_31
-    end
-
-    def rails32?
-      return false unless defined?(::Rails)
-      version_match RAILS_32
     end
 
     def version_match(version)
@@ -115,7 +101,7 @@ end
 
 if defined?(::Rails)
   Compass::AppIntegration.register(:rails, "::CompassRails")
+  require "compass-rails/railtie"
   require "compass-rails/patches"
-  require "compass-rails/railties"
 end
 
