@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 require File.expand_path('../lib/compass-rails/version', __FILE__)
 
 Gem::Specification.new do |gem|
@@ -17,6 +16,6 @@ Gem::Specification.new do |gem|
   gem.license       = "MIT"
 
   gem.add_dependency 'compass', '~> 1.0.0'
-  gem.add_dependency 'sprockets', '< 2.13'
+  gem.add_dependency 'sprockets', '~> 3.2'
   gem.add_dependency 'sass-rails', '< 5.1'
 end
