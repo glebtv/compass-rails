@@ -1,5 +1,3 @@
-p 'railtie'
-
 module CompassRails
   class Railtie < Rails::Railtie
 
