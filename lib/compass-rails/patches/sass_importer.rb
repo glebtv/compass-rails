@@ -80,7 +80,8 @@ klass.class_eval do
     when :memory_store, :mem_cache_store
       Sprockets::Cache::MemoryStore.new
     else
-      Sprockets::Cache::FileStore.new(Dir::tmpdir)
+      FileUtils.mkdir(Rails.root.join("tmp/compass").to_s)
+      Sprockets::Cache::FileStore.new(Rails.root.join("tmp/compass").to_s)
     end
 
     Sprockets::Cache.new(cache, Rails.logger)
